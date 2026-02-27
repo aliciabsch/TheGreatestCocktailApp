@@ -24,4 +24,14 @@ interface ApiService {
     fun getCocktailDetail(
         @Query("i") id: String
     ): Call<CocktailResponse>
+
+    @GET("search.php")
+    fun searchCocktailByName(
+        @Query("s") name: String
+    ): Call<CocktailResponse>
+
+    @GET("filter.php")
+    fun searchCocktailByIngredient(
+        @Query("i") ingredient: String
+    ): Call<DrinkFilterResponse>
 }

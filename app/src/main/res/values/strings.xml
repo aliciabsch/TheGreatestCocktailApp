@@ -5,4 +5,5 @@
     <string name="tab_item_category">Category</string>
     <string name="tab_item_random">Home</string>
     <string name="tab_item_favorite">Favorites</string>
+    <string name="tab_item_search">Search</string>
 </resources>

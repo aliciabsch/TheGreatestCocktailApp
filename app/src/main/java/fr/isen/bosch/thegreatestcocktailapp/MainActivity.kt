@@ -40,6 +40,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import fr.isen.bosch.thegreatestcocktailapp.ui.theme.TheGreatestCocktailAppTheme
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.Search
+
 
 data class TabBarItem(
     val title: String,
@@ -72,7 +75,12 @@ class MainActivity : ComponentActivity() {
                 Icons.Filled.Favorite,
                 Icons.Outlined.Favorite
             )
-            val tabItems = listOf(randomItem, categoryItem, favoriteItem)
+            val searchItem = TabBarItem(
+                stringResource(R.string.tab_item_search),
+                Icons.Filled.Search,
+                Icons.Outlined.Search
+            )
+            val tabItems = listOf(randomItem, searchItem, categoryItem, favoriteItem)
 
             TheGreatestCocktailAppTheme {
                 Scaffold(
@@ -120,6 +128,12 @@ class MainActivity : ComponentActivity() {
 
                             )
 
+                        }
+                        composable(searchItem.title) {
+                            SearchScreen(
+                                Modifier.padding(paddingValues = innerPadding),
+                                onComposing = { appBarState.value = it }
+                            )
                         }
                     }
                 }
